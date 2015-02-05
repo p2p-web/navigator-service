@@ -2,12 +2,44 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>navigator.service</title>
-  <script src="bower_components/dns-sd.js/dist/dns-sd.js"></script>
-  <script src="lib/httpd.js"></script>
-  <script src="service.js"></script>
-</head>
-<body>
+  <title>navigator-service</title>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+  <link rel="stylesheet" href="bower_components/base/base.css">
+  <link rel="stylesheet" href="bower_components/gaia-font/style.css">
+  <link rel="stylesheet" href="bower_components/gaia-theme/gaia-theme.css">
+  <style>
 
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      padding: 1px var(--base-m);
+    }
+
+  </style>
+</head>
+<body class="theme-settings">
+  <gaia-text-input id="input-register" value="some-unique-service-id"></gaia-text-input>
+  <gaia-button id="button-register">Advertise Service</gaia-button>
+  <hr/>
+  <gaia-text-input id="input-discover" value="some-unique-service-id"></gaia-text-input>
+  <gaia-button id="button-discover">Discover Services</gaia-button>
+  <hr/>
+  <gaia-button id="button-get">Get data</gaia-button>
+
+  <gaia-dialog id="dialog">
+    <h1>Nearby Services</h1>
+  </gaia-dialog>
+
+  <script src="bower_components/gaia-component/gaia-component.js"></script>
+  <script src="bower_components/gaia-text-input/gaia-text-input.js"></script>
+  <script src="bower_components/gaia-button/gaia-button.js"></script>
+  <script src="bower_components/gaia-dialog/gaia-dialog.js"></script>
+  <script src="bower_components/dns-sd.js/dist/dns-sd.js"></script>
+  <script src="bower_components/httpd.js/httpd.js"></script>
+  <script src="service.js"></script>
+  <script src="example/app.js"></script>
 </body>
 </html>

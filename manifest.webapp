@@ -1,0 +1,11 @@
+{
+  "name": "navigator-service",
+  "launch_path": "/index.html",
+  "type": "certified",
+  "permissions": {
+    "udp-socket": {},
+    "tcp-socket": {},
+    "systemXHR": {},
+    "settings": { "access": "readonly" }
+  }
+}
