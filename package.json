@@ -1,0 +1,19 @@
+{
+  "name": "navigator-service",
+  "version": "0.0.1",
+  "description": "navigator.service polyfill for in browser P2P communication",
+  "author": "Mozilla <p2p@mozilla.org>",
+  "main": "service.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p2p-web/navigator-service"
+  },
+  "keywords": [
+  "p2p"
+  ],
+  "dependencies": {
+    "gulp": "*",
+    "gulp-concat": "*"
+  },
+  "license": "MIT"
+}
