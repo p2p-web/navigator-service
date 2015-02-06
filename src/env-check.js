@@ -13,5 +13,5 @@ if (userAgent.indexOf("Mobile") > -1) {
 
 window.P2PENV = env;
 
-});
+})();
 

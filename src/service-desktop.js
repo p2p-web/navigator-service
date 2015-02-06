@@ -9,15 +9,22 @@ if (window.P2PENV !== 'desktop') {
 }
 
 service.discover = function(name, callback) {
-  navigator.sd.registerListener('discovered', (device) => {
+  navigator.sd.registerListener('discovered', (service) => {
+    var service = service.split(':');
+    service = {
+      device: service[1],
+      name: service[0],
+      address: service[2]
+    };
     getOwnIp.then((ip) => {
-      if (ip === device.address) { return; }
-      var match = getMatchingService(name, device);
-      if (match) callback(match);
+      if (ip === service.address) { return; }
+      //var match = getMatchingService(name, device);
+      //if (match) callback(match);
+      callback(service);
     });
   });
 
-  DNSSD.startDiscovery();
+  navigator.sd.startDiscovery('_http._tcp.local');
 };
 
 service.discover.stop = function() {
@@ -37,23 +44,8 @@ service.unregister = function(id) {
 };
 
 function getMatchingService(id, device) {
-  for (var i = 0, l = device.services.length; i < l; i++) {
-    var identifier = device.services[i];
-    var parts = identifier.split('.');
-    var deviceId = parts[0];
-    var name = parts[1];
-    var domain = parts[3];
-
-    debug('check', name, '_' + id);
-
-    if (name === '_' + id) {
-      return {
-        device: deviceId,
-        name: name,
-        domain: domain,
-        address: device.address
-      };
-    }
+  for (var i = 0; i < device.services.length; i++) {
+    return device.services[i];
   }
 }
 
